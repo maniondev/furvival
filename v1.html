@@ -116,8 +116,16 @@ p { margin: 0; }
 .mark { width: 34px; height: 34px; flex: none; color: var(--ink); }
 .wordmark { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; font-size: 21px; line-height: 1; }
 .wordmark .fur { font-weight: 900; color: var(--fur, inherit); }
-/* Accent FUR in dark mode only */
 :root[data-theme="dark"] { --fur: var(--accent); }
+/* FUR in the accent everywhere. On light backgrounds the accent is darkened just enough to reach 3.5:1;
+   on dark surfaces (dark mode, PIN screen, dark footer) it uses the full accent. */
+:root { --fur: var(--accent); }
+:root:not([data-theme="dark"]):not([data-palette]) { --fur: #A2722B; }
+:root[data-palette="b"]:not([data-theme="dark"]) { --fur: #CC6247; }
+:root[data-palette="storm"]:not([data-theme="dark"]) { --fur: #D35C1D; }
+:root[data-palette="kona"]:not([data-theme="dark"]) { --fur: #468A7A; }
+:root[data-palette="night"]:not([data-theme="dark"]) { --fur: #2A8985; }
+.gate-word .fur { color: var(--accent); }
 .wordmark .vival { font-weight: 300; }
 
 /* Buttons */
