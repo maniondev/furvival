@@ -360,6 +360,11 @@ p { margin: 0; }
 .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .item { display: grid; gap: 6px; text-decoration: none; min-width: 0; align-content: start; }
 .item .photo { aspect-ratio: 1; margin-bottom: 8px; background-color: var(--surface); }
+.item .photo.icon { background: var(--surface); }
+.item .photo.icon::after {
+  content: ""; position: absolute; inset: 14%; background: var(--ink);
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+}
 .item b { font-family: var(--font-display); font-weight: 750; font-size: 18px; }
 .item-cat { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .item .price { font-size: 16px; }
@@ -579,19 +584,19 @@ p { margin: 0; }
       </div>
       <div class="shop-grid">
         <a class="item" href="#shop">
-          <div class="photo" role="img" aria-label="Photo placeholder: Ready Kit"><div class="cap">Ready Kit, packed, by a front door</div></div>
+          <div class="photo icon" style="--icon: url(images/icons/ready-kit.png)" role="img" aria-label="Ready Kit icon"></div>
           <span class="item-cat">Preparedness</span><b>Ready Kit</b><span class="price"><small>from</small> $79</span>
         </a>
         <a class="item" href="#shop">
-          <div class="photo" role="img" aria-label="Photo placeholder: First Aid Kit"><div class="cap">First Aid Kit, open, on a beach towel</div></div>
+          <div class="photo icon" style="--icon: url(images/icons/first-aid-kit.png)" role="img" aria-label="First Aid Kit icon"></div>
           <span class="item-cat">First aid</span><b>First Aid Kit</b><span class="price"><small>from</small> $49</span>
         </a>
         <a class="item" href="#shop">
-          <div class="photo" role="img" aria-label="Photo placeholder: Pet Passport"><div class="cap">Pet Passport, open to the vaccine page</div></div>
+          <div class="photo icon" style="--icon: url(images/icons/pet-passport.png)" role="img" aria-label="Pet Passport icon"></div>
           <span class="item-cat">Records</span><b>Pet Passport™</b><span class="price"><small>from</small> $29</span>
         </a>
         <a class="item" href="#shop">
-          <div class="photo" role="img" aria-label="Photo placeholder: Adventure Tags"><div class="cap">Adventure Tags on a collar, close-up</div></div>
+          <div class="photo icon" style="--icon: url(images/icons/adventure-tags.png)" role="img" aria-label="Adventure Tags icon"></div>
           <span class="item-cat">Accessories</span><b>Adventure Tags</b><span class="price">Price TBD</span>
         </a>
       </div>
