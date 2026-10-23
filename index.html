@@ -161,7 +161,8 @@ p { margin: 0; }
   .header-row { grid-template-columns: 1fr auto; }
   .menu-btn { display: inline-flex; }
 }
-@media (min-width: 861px) { .menu { display: none !important; } }
+.menu-btn { display: inline-flex; }
+@media (min-width: 861px) { .menu ul { display: none; } } /* header nav covers these on desktop */
 
 /* Hero: full-bleed photo, headline on the photo */
 .hero { position: relative; min-height: clamp(520px, 80vh, 780px); display: grid; align-items: end; overflow: hidden; color: #ffffff; background: #2b2b2b; }
@@ -309,6 +310,21 @@ p { margin: 0; }
 .versions a { padding: 7px 11px; border-radius: 999px; text-decoration: none; color: #555; }
 .versions a[aria-current="page"] { background: #1b1b1b; color: #fff; }
 @media (max-width: 400px) { .switcher button { padding: 4px; } .swatches i { width: 13px; height: 13px; margin-left: -4px; } .versions a { padding: 6px 8px; } }
+
+/* Preview controls live inside the menu instead of floating over the page */
+.menu-controls { padding-block: 14px 24px; }
+.menu-label { margin: 0 0 10px; font: 600 13px/1.2 var(--font-body); color: var(--muted); }
+.menu .switcher { position: static; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0; margin: 0;
+  background: transparent; color: var(--ink); border: 0; border-radius: 0; box-shadow: none; max-width: none; overflow: visible; font: 600 14px/1 var(--font-body); }
+.menu .switcher > * { flex: none; }
+.menu .switcher > span.sep { width: 1px; min-width: 0; height: 24px; background: var(--line); margin: 0 4px; }
+.menu .switcher button { padding: 6px; border: 1px solid transparent; }
+.menu .switcher button[aria-pressed="true"] { background: var(--tint); border-color: var(--line); }
+.menu .switcher .versions { display: inline-flex; background: var(--tint); border-radius: 999px; padding: 2px; }
+.menu .switcher .versions a { padding: 7px 12px; border-radius: 999px; text-decoration: none; color: var(--muted); border: 0; font: 600 14px/1 var(--font-body); }
+.menu .switcher .versions a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.menu .switcher .swatches i { width: 18px; height: 18px; border-color: var(--bg); }
+.menu .switcher .mode { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -363,7 +379,22 @@ p { margin: 0; }
       <li><a href="#guides">Guides</a></li>
       <li><a href="#story">Our story</a></li>
       <li><a href="#trade">Wholesale</a></li>
-    </ul></div>
+    </ul>
+    <div class="wrap menu-controls">
+      <p class="menu-label">Preview options</p>
+      <div class="switcher" role="group" aria-label="Mockup controls">
+  <span class="versions"><a href="v1.html">V1</a><a href="#top" aria-current="page">V2</a></span>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" data-pal="lava" data-name="Lava Rock" title="Lava Rock" aria-label="Lava Rock palette" aria-pressed="true"><span class="swatches"><i style="background:#222020"></i><i style="background:#EDEAE4"></i><i style="background:#D2462A"></i></span></button>
+  <button type="button" data-pal="a" data-name="A" title="A" aria-label="Palette A" aria-pressed="false"><span class="swatches"><i style="background:#12394A"></i><i style="background:#F3EBDD"></i><i style="background:#E8A33D"></i></span></button>
+  <button type="button" data-pal="b" data-name="B" title="B" aria-label="Palette B" aria-pressed="false"><span class="swatches"><i style="background:#0E4A47"></i><i style="background:#F4F6F1"></i><i style="background:#FF7A59"></i></span></button>
+  <button type="button" data-pal="storm" data-name="Storm &amp; Signal" title="Storm &amp; Signal" aria-label="Storm and Signal palette" aria-pressed="false"><span class="swatches"><i style="background:#0E1E4A"></i><i style="background:#F5F2EC"></i><i style="background:#F26A21"></i></span></button>
+  <button type="button" data-pal="kona" data-name="Kona Coffee" title="Kona Coffee" aria-label="Kona Coffee palette" aria-pressed="false"><span class="swatches"><i style="background:#3B2A20"></i><i style="background:#F6EFE6"></i><i style="background:#4F9D8B"></i></span></button>
+  <button type="button" data-pal="night" data-name="Night Watch" title="Night Watch" aria-label="Night Watch palette" aria-pressed="false"><span class="swatches"><i style="background:#0B1320"></i><i style="background:#E9EEF2"></i><i style="background:#3FD0C9"></i></span></button>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" class="mode" id="mode" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+    </div></div>
   </nav>
 </header>
 
@@ -481,19 +512,6 @@ p { margin: 0; }
     <div class="legal"><span>© 2026 Furvival · Honolulu, Hawaii</span><span>Furvival products do not replace care from your veterinarian.</span></div>
   </div>
 </footer>
-
-<div class="switcher" role="group" aria-label="Mockup controls">
-  <span class="versions"><a href="v1.html">V1</a><a href="#top" aria-current="page">V2</a></span>
-  <span class="sep" aria-hidden="true"></span>
-  <button type="button" data-pal="lava" data-name="Lava Rock" title="Lava Rock" aria-label="Lava Rock palette" aria-pressed="true"><span class="swatches"><i style="background:#222020"></i><i style="background:#EDEAE4"></i><i style="background:#D2462A"></i></span></button>
-  <button type="button" data-pal="a" data-name="A" title="A" aria-label="Palette A" aria-pressed="false"><span class="swatches"><i style="background:#12394A"></i><i style="background:#F3EBDD"></i><i style="background:#E8A33D"></i></span></button>
-  <button type="button" data-pal="b" data-name="B" title="B" aria-label="Palette B" aria-pressed="false"><span class="swatches"><i style="background:#0E4A47"></i><i style="background:#F4F6F1"></i><i style="background:#FF7A59"></i></span></button>
-  <button type="button" data-pal="storm" data-name="Storm &amp; Signal" title="Storm &amp; Signal" aria-label="Storm and Signal palette" aria-pressed="false"><span class="swatches"><i style="background:#0E1E4A"></i><i style="background:#F5F2EC"></i><i style="background:#F26A21"></i></span></button>
-  <button type="button" data-pal="kona" data-name="Kona Coffee" title="Kona Coffee" aria-label="Kona Coffee palette" aria-pressed="false"><span class="swatches"><i style="background:#3B2A20"></i><i style="background:#F6EFE6"></i><i style="background:#4F9D8B"></i></span></button>
-  <button type="button" data-pal="night" data-name="Night Watch" title="Night Watch" aria-label="Night Watch palette" aria-pressed="false"><span class="swatches"><i style="background:#0B1320"></i><i style="background:#E9EEF2"></i><i style="background:#3FD0C9"></i></span></button>
-  <span class="sep" aria-hidden="true"></span>
-  <button type="button" class="mode" id="mode" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-</div>
 
 <script>
 (function () {
