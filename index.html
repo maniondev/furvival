@@ -258,9 +258,9 @@ p { margin: 0; }
 .learn-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
 .guides { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
 .guides a { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding-block: 20px; border-bottom: 1px solid var(--line); text-decoration: none; }
-.guides h3 { font-size: 21px; font-weight: 750; letter-spacing: -0.015em; }
+.guides h3 { font-size: 21px; font-weight: 750; letter-spacing: -0.015em; line-height: 1.2; }
 .guides p { grid-column: 1; color: var(--muted); font-size: 15.5px; }
-.guides .go { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-weight: 600; font-size: 15px; }
+.guides .go { grid-column: 2; align-self: center; font-weight: 600; font-size: 15px; }
 .guides a:hover h3 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
 .signup { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-ctl); padding: clamp(24px, 3vw, 36px); display: grid; gap: 14px; }
 .signup h2 { font-size: 28px; }
@@ -447,7 +447,7 @@ p { margin: 0; }
       </div>
       <ul class="products">
         <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/first-aid-kit.png)" aria-hidden="true"></span><span class="meta"><span class="name">First Aid Kit</span><span class="p-price">$49</span></span></a></li>
-        <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/pet-passport.png)" aria-hidden="true"></span><span class="meta"><span class="name">Pet Passport™</span><span class="p-price">$29</span></span></a></li>
+        <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/pet-passport.png)" aria-hidden="true"></span><span class="meta"><span class="name">Pet Passport</span><span class="p-price">$29</span></span></a></li>
         <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/adventure-tags.png)" aria-hidden="true"></span><span class="meta"><span class="name">Accessories</span><span class="p-price">Coming soon</span></span></a></li>
       </ul>
     </div>
@@ -472,9 +472,9 @@ p { margin: 0; }
       <div>
         <h2>Free guides</h2>
         <ul class="guides">
-          <li><a href="#guides"><h3>Hurricane season checklist for pets</h3><p>What to pack, where to keep it, and which shelters take pets.</p><span class="go">Read</span></a></li>
-          <li><a href="#guides"><h3>Flying inter-island with a pet</h3><p>The records to carry and what to book ahead.</p><span class="go">Read</span></a></li>
-          <li><a href="#guides"><h3>Pet first aid basics</h3><p>Cuts, torn nails, and stings until you can reach your vet.</p><span class="go">Read</span></a></li>
+          <li><a href="#guides"><h3>Hurricane season checklist for pets</h3><span class="go">Read</span></a></li>
+          <li><a href="#guides"><h3>Flying inter-island with a pet</h3><span class="go">Read</span></a></li>
+          <li><a href="#guides"><h3>Pet first aid basics</h3><span class="go">Read</span></a></li>
         </ul>
       </div>
       <div class="signup" id="signup">
