@@ -146,6 +146,7 @@ p { margin: 0; }
 .header-actions { display: flex; align-items: center; gap: 10px; }
 .cart { min-height: 42px; padding: 0 16px; font-size: 15px; }
 .cart .count { font-family: var(--font-mono); font-weight: 500; }
+@media (max-width: 360px) { .header-actions { gap: 6px; } .cart { padding: 0 12px; } }
 @media (max-width: 920px) { .nav { display: none; } }
 .menu-btn { width: 42px; min-height: 42px; padding: 0; }
 .menu-btn svg { width: 20px; height: 20px; }
@@ -343,12 +344,15 @@ p { margin: 0; }
 .collage-main { aspect-ratio: 4 / 5; }
 .collage-side { aspect-ratio: 3 / 4; margin-bottom: 48px; }
 .collage-tag { position: absolute; top: 18px; right: 10px; font-size: 14px; }
-@media (max-width: 860px) { .hero-collage { grid-template-columns: 1.3fr 1fr; } .collage-tag { top: auto; bottom: 70px; } }
+@media (max-width: 860px) {
+  .hero-collage { grid-template-columns: 1.3fr 1fr; transform: translateX(13px); } /* re-center after the overlap pulls the small photo left */
+  .collage-tag { top: auto; bottom: 70px; }
+}
 /* Tilted, overlapping prints */
 .collage-main { transform: rotate(-2deg); }
 .collage-side {
   transform: rotate(3deg); z-index: 1; margin-left: -28px;
-  border: 6px solid var(--surface); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .45);
+  border: 6px solid var(--bg); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .45);
 }
 .collage-tag { z-index: 2; }
 @media (min-width: 861px) {
