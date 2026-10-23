@@ -112,8 +112,8 @@ p { margin: 0; }
 
 /* Wordmark */
 .brand { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
-.mark { width: 30px; height: 30px; flex: none; }
-.wordmark { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; font-size: 19px; line-height: 1; }
+.mark { width: 36px; height: 36px; flex: none; }
+.wordmark { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; font-size: 23px; line-height: 1; }
 .wordmark .fur { font-weight: 900; color: var(--fur, inherit); }
 :root[data-theme="dark"] { --fur: var(--accent); }
 /* FUR in the accent everywhere. On light backgrounds the accent is darkened just enough to reach 3.5:1;
@@ -328,6 +328,7 @@ p { margin: 0; }
 
 /* Anchor links stop below the sticky header instead of under it */
 [id] { scroll-margin-top: calc(65px + env(safe-area-inset-top, 0px)); }
+@media (max-width: 400px) { .site-header .wordmark { font-size: 21px; } .site-header .mark { width: 33px; height: 33px; } }
 </style>
 </head>
 <body>
