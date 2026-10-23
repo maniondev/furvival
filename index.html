@@ -233,7 +233,8 @@ p { margin: 0; }
 /* Shop */
 .shop { padding-block: clamp(48px, 7vw, 88px); border-top: 1px solid var(--line); }
 .catalog-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
-.products { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.products { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 1000px) { .product .meta { flex-direction: column; gap: 2px; } }
 .product { display: grid; gap: 14px; text-decoration: none; }
 .product .thumb { position: relative; aspect-ratio: 1; background: var(--tint); border-radius: var(--r-photo); transition: background-color .15s ease; }
 .product .thumb::after { content: ""; position: absolute; inset: 28%; background: var(--ink); -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
@@ -243,7 +244,7 @@ p { margin: 0; }
 .product .p-price { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
 .product:hover .name { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
 .soon { margin-top: 28px; color: var(--muted); font-size: 15.5px; }
-@media (max-width: 760px) { .products { grid-template-columns: 1fr 1fr; gap: 20px 16px; } .products li:last-child { grid-column: span 2; } .products li:last-child .thumb { aspect-ratio: 2 / 1; } .product .meta { flex-direction: column; gap: 2px; } }
+@media (max-width: 760px) { .products { grid-template-columns: 1fr 1fr; gap: 20px 16px; } .product .meta { flex-direction: column; gap: 2px; } }
 
 /* Founders */
 .founders { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
@@ -419,18 +420,18 @@ p { margin: 0; }
         <h1><span class="keep">Beach days</span> to <span class="keep">big storms</span></h1>
         <p class="hero-sub">First aid kits, go-bags, and pet records for dogs and cats. Made in Hawaiʻi with veterinary professionals.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#ready-kit">Shop the Ready Kit</a>
+          <a class="btn btn-primary" href="#rally-pack">Shop the Rally Pack</a>
           <a class="text-link" href="#shop">See all products</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="feature" id="ready-kit">
+  <section class="feature" id="rally-pack">
     <div class="wrap feature-grid">
-      <div class="tile" style="--icon: url(images/icons/ready-kit.png)" role="img" aria-label="Ready Kit"></div>
+      <div class="tile" style="--icon: url(images/icons/ready-kit.png)" role="img" aria-label="Rally Pack"></div>
       <div class="feature-copy">
-        <h2>The Ready Kit</h2>
+        <h2>The Rally Pack</h2>
         <div class="price-line"><span class="price">Starting at $99</span></div>
         <p>A grab-and-go bag for evacuations, power outages, and anything else that sends you out the door in a hurry. Add your pet's food and meds, and you're set.</p>
         <details class="included">
@@ -441,7 +442,7 @@ p { margin: 0; }
           </ul></div>
         </details>
         <div class="feature-actions">
-          <a class="btn btn-primary" href="#ready-kit">Add to cart</a>
+          <a class="btn btn-primary" href="#rally-pack">Add to cart</a>
         </div>
       </div>
     </div>
@@ -454,8 +455,9 @@ p { margin: 0; }
         <a class="text-link" href="#shop">View all</a>
       </div>
       <ul class="products">
-        <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/first-aid-kit.png)" aria-hidden="true"></span><span class="meta"><span class="name">First Aid Kit</span><span class="p-price">$49</span></span></a></li>
+        <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/first-aid-kit.png)" aria-hidden="true"></span><span class="meta"><span class="name">Patch Kit</span><span class="p-price">$49</span></span></a></li>
         <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/pet-passport.png)" aria-hidden="true"></span><span class="meta"><span class="name">Pet Passport</span><span class="p-price">$29</span></span></a></li>
+        <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/tag-along.svg)" aria-hidden="true"></span><span class="meta"><span class="name">Tag Along</span><span class="p-price">Price TBD</span></span></a></li>
         <li><a class="product" href="#shop"><span class="thumb" style="--icon: url(images/icons/adventure-tags.png)" aria-hidden="true"></span><span class="meta"><span class="name">Accessories</span><span class="p-price">Coming soon</span></span></a></li>
       </ul>
     </div>
@@ -517,7 +519,7 @@ p { margin: 0; }
         </div>
         <p class="footer-tag">Every pet should have a plan.</p>
       </div>
-      <div><h4>Shop</h4><ul><li><a href="#ready-kit">Ready Kit</a></li><li><a href="#shop">First Aid Kit</a></li><li><a href="#shop">Pet Passport</a></li><li><a href="#shop">Accessories</a></li></ul></div>
+      <div><h4>Shop</h4><ul><li><a href="#rally-pack">Rally Pack</a></li><li><a href="#shop">Patch Kit</a></li><li><a href="#shop">Pet Passport</a></li><li><a href="#shop">Tag Along</a></li><li><a href="#shop">Accessories</a></li></ul></div>
       <div><h4>Learn</h4><ul><li><a href="#guides">Guides</a></li><li><a href="#story">Our story</a></li><li><a href="#guides">Find us at events</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="#top">Contact</a></li><li><a href="#top">FAQ</a></li><li><a href="#trade">Wholesale</a></li></ul></div>
     </div>
