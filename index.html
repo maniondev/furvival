@@ -334,6 +334,8 @@ p { margin: 0; }
 @media (max-width: 400px) { .site-header .wordmark { font-size: 21px; } .site-header .mark { width: 33px; height: 33px; } }
 @media (max-width: 400px) { .header-row { gap: 12px; } .header-actions { gap: 4px; } }
 .more-guides { margin-top: 24px; }
+.hero h1 .keep { white-space: nowrap; } /* never split "Beach days" or "big storms" */
+@media (min-width: 1200px) { .hero-copy { max-width: 760px; } }
 </style>
 </head>
 <body>
@@ -414,7 +416,7 @@ p { margin: 0; }
     </figure>
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <h1>From beach days to big storms</h1>
+        <h1><span class="keep">Beach days</span> to <span class="keep">big storms</span></h1>
         <p class="hero-sub">First aid kits, go-bags, and pet records for dogs and cats. Made in Hawaiʻi with veterinary professionals.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#ready-kit">Shop the Ready Kit</a>
