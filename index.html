@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="locked">
+<html lang="en" class="locked" data-palette="lava">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -649,10 +649,10 @@ p { margin: 0; }
 </footer>
 
 <div class="switcher" role="group" aria-label="Mockup palette">
-  <span>Palette: <b id="pal-name">A</b></span>
-  <button type="button" id="pal-a" data-pal="a" data-name="A" title="A" aria-label="Palette A" aria-pressed="true"><span class="swatches"><i style="background:#12394A"></i><i style="background:#F3EBDD"></i><i style="background:#E8A33D"></i></span></button>
+  <span>Palette: <b id="pal-name">Lava Rock</b></span>
+  <button type="button" id="pal-lava" data-pal="lava" data-name="Lava Rock" title="Lava Rock" aria-label="Lava Rock palette" aria-pressed="true"><span class="swatches"><i style="background:#222020"></i><i style="background:#EDEAE4"></i><i style="background:#D2462A"></i></span></button>
+  <button type="button" id="pal-a" data-pal="a" data-name="A" title="A" aria-label="Palette A" aria-pressed="false"><span class="swatches"><i style="background:#12394A"></i><i style="background:#F3EBDD"></i><i style="background:#E8A33D"></i></span></button>
   <button type="button" id="pal-b" data-pal="b" data-name="B" title="B" aria-label="Palette B" aria-pressed="false"><span class="swatches"><i style="background:#0E4A47"></i><i style="background:#F4F6F1"></i><i style="background:#FF7A59"></i></span></button>
-  <button type="button" id="pal-lava" data-pal="lava" data-name="Lava Rock" title="Lava Rock" aria-label="Lava Rock palette" aria-pressed="false"><span class="swatches"><i style="background:#222020"></i><i style="background:#EDEAE4"></i><i style="background:#D2462A"></i></span></button>
   <button type="button" id="pal-storm" data-pal="storm" data-name="Storm &amp; Signal" title="Storm &amp; Signal" aria-label="Storm and Signal palette" aria-pressed="false"><span class="swatches"><i style="background:#0E1E4A"></i><i style="background:#F5F2EC"></i><i style="background:#F26A21"></i></span></button>
   <button type="button" id="pal-kona" data-pal="kona" data-name="Kona Coffee" title="Kona Coffee" aria-label="Kona Coffee palette" aria-pressed="false"><span class="swatches"><i style="background:#3B2A20"></i><i style="background:#F6EFE6"></i><i style="background:#4F9D8B"></i></span></button>
   <button type="button" id="pal-night" data-pal="night" data-name="Night Watch" title="Night Watch" aria-label="Night Watch palette" aria-pressed="false"><span class="swatches"><i style="background:#0B1320"></i><i style="background:#E9EEF2"></i><i style="background:#3FD0C9"></i></span></button>
@@ -665,15 +665,15 @@ p { margin: 0; }
   var nameEl = document.getElementById('pal-name');
   function apply(p) {
     var match = Array.prototype.filter.call(buttons, function (b) { return b.dataset.pal === p; })[0];
-    if (!match) { p = 'a'; match = buttons[0]; }
+    if (!match) { p = 'lava'; match = buttons[0]; }
     if (p === 'a') root.removeAttribute('data-palette'); else root.setAttribute('data-palette', p);
     nameEl.textContent = match.dataset.name;
     buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.pal === p)); });
-    try { localStorage.setItem('furvival-palette', p); } catch (e) {}
+    try { localStorage.setItem('furvival-palette-v2', p); } catch (e) {}
   }
-  var saved = 'a';
+  var saved = 'lava';
   if (location.hash === '#palette-b') saved = 'b';
-  else { try { saved = localStorage.getItem('furvival-palette') || 'a'; } catch (e) {} }
+  else { try { saved = localStorage.getItem('furvival-palette-v2') || 'lava'; } catch (e) {} }
   apply(saved);
   buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.pal); }); });
 
