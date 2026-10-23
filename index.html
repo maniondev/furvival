@@ -298,7 +298,8 @@ p { margin: 0; }
 .doors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .door { padding: clamp(24px, 4vw, 40px); border-radius: var(--radius); display: grid; gap: 14px; align-content: start; min-width: 0; }
 .door-find { background: var(--surface); border: 1px solid var(--line); }
-.door-wholesale { background: var(--accent-soft); }
+.door-wholesale { background: color-mix(in srgb, var(--accent) 24%, var(--bg)); }
+:root[data-theme="dark"] .door-wholesale { background: var(--accent-soft); }
 .door p { color: var(--muted); }
 .door-wholesale p { color: var(--ink); }
 .door .btn { justify-self: start; margin-top: 6px; }
@@ -404,7 +405,10 @@ p { margin: 0; }
   display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 14px;
   background: #ffffff; color: #1b1b1b; border: 1px solid #d9d9d9; border-radius: 999px;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,.35); font: 600 13px/1 var(--font-body);
+  max-width: calc(100vw - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  overflow-x: auto; scrollbar-width: none;
 }
+.switcher > * { flex: none; }
 .switcher > span { margin-right: 4px; min-width: 9.5em; white-space: nowrap; }
 .switcher > span b { font-weight: 700; }
 .switcher button { display: inline-flex; align-items: center; border: 1px solid transparent; background: transparent; border-radius: 999px; padding: 6px; font: inherit; color: inherit; cursor: pointer; }
@@ -417,8 +421,9 @@ p { margin: 0; }
 .switcher .mode .moon { display: none; }
 :root[data-theme="dark"] .switcher .mode .sun { display: none; }
 :root[data-theme="dark"] .switcher .mode .moon { display: block; }
-@media (max-width: 560px) { .switcher > span { display: none; } .switcher { padding-left: 6px; gap: 2px; } .switcher button { padding: 5px; } }
+@media (max-width: 700px) { .switcher > span { display: none; } .switcher { padding-left: 6px; gap: 2px; } .switcher button { padding: 5px; } }
 @media (max-width: 400px) { .switcher button { padding: 3px; } }
+@media (max-width: 360px) { .switcher { gap: 0; } .swatches i { width: 13px; height: 13px; margin-left: -4px; } .switcher > span.sep { margin: 0 2px; } }
 </style>
 </head>
 <body>
