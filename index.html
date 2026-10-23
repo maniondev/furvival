@@ -173,6 +173,7 @@ p { margin: 0; }
   border: 1px solid var(--line);
   display: flex; align-items: flex-end;
 }
+.photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
 .photo .cap {
   font-family: var(--font-mono); font-size: 12px; line-height: 1.45; color: var(--muted);
   padding: 14px 16px; display: flex; gap: 8px;
@@ -338,7 +339,7 @@ p { margin: 0; }
 .collage-main { aspect-ratio: 4 / 5; }
 .collage-side { aspect-ratio: 3 / 4; margin-bottom: 48px; }
 .collage-tag { position: absolute; top: 18px; right: 10px; font-size: 14px; }
-@media (max-width: 860px) { .hero-collage { grid-template-columns: 1.3fr 1fr; } }
+@media (max-width: 860px) { .hero-collage { grid-template-columns: 1.3fr 1fr; } .collage-tag { top: auto; bottom: 70px; } }
 
 /* Moments */
 .moments-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -512,8 +513,8 @@ p { margin: 0; }
         </div>
       </div>
       <div class="hero-collage">
-        <div class="photo collage-main" role="img" aria-label="Photo placeholder: dog and owner walking on a beach in the morning"><div class="cap">Dog and owner on a quiet beach walk, early morning, calm water</div></div>
-        <div class="photo collage-side" role="img" aria-label="Photo placeholder: cat napping indoors"><div class="cap">Cat napping on a sunny windowsill at home</div></div>
+        <div class="photo collage-main"><img src="images/beach-chair.jpg" width="792" height="997" alt="Tan dog grinning on a blue beach chair on the sand"></div>
+        <div class="photo collage-side" style="--focus: 50% 35%"><img src="images/stroller.jpg" width="943" height="1400" alt="Smiling dog riding in a pet stroller in the sun"></div>
         <span class="sticker collage-tag">Island Explorer</span>
       </div>
     </div>
@@ -557,7 +558,7 @@ p { margin: 0; }
           <div class="moment-body"><h3>Travel and boarding</h3><p>Everything the sitter, kennel, or airline will ask for.</p><span class="link-arrow">Shop travel →</span></div>
         </a>
         <a class="moment" href="#shop">
-          <div class="photo" role="img" aria-label="Photo placeholder: cat on a kitchen counter next to a medication pouch"><div class="cap">Cat on a kitchen counter beside a labeled med pouch</div></div>
+          <div class="photo" style="--focus: 50% 35%"><img src="images/office.jpg" width="1059" height="1400" loading="lazy" alt="Happy dog in a blanket-lined basket at the office"></div>
           <div class="moment-body"><h3>Everyday care</h3><p>Meds, vet records, and the small stuff, kept in order.</p><span class="link-arrow">Shop everyday →</span></div>
         </a>
       </div>
@@ -615,7 +616,7 @@ p { margin: 0; }
         <span class="handle">Tag us @furvival</span>
       </div>
       <div class="gallery">
-        <figure><div class="photo" role="img" aria-label="Photo placeholder: dog on the sand"></div><figcaption><span class="sticker">Beach Bum</span></figcaption></figure>
+        <figure><div class="photo"><img src="images/pool.jpg" width="1206" height="1201" loading="lazy" alt="Dog laughing on a pool float next to its owner"></div><figcaption><span class="sticker">Pool Day</span></figcaption></figure>
         <figure><div class="photo" role="img" aria-label="Photo placeholder: dog on a trail"></div><figcaption><span class="sticker">Trail Dog</span></figcaption></figure>
         <figure><div class="photo" role="img" aria-label="Photo placeholder: cat by the treat jar"></div><figcaption><span class="sticker">Treat Inspector</span></figcaption></figure>
         <figure><div class="photo" role="img" aria-label="Photo placeholder: dog under an office desk"></div><figcaption><span class="sticker">Office Mascot</span></figcaption></figure>
@@ -626,7 +627,7 @@ p { margin: 0; }
 
   <section class="contents" id="about">
     <div class="wrap founders-grid">
-      <div class="photo" role="img" aria-label="Photo placeholder: John and Ani with their pets"><div class="cap">John and Ani at home with their dog and cats, relaxed, natural light</div></div>
+      <div class="photo"><img src="images/founders.jpg" width="1206" height="892" loading="lazy" alt="John and Ani sitting on a bench with their dog between them"></div>
       <div class="founders-copy">
         <span class="eyebrow">Our story</span>
         <h2>Started at home, with our own pets</h2>
