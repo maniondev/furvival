@@ -65,6 +65,7 @@ html:not(.locked) .gate { display: none; }
   --line: color-mix(in srgb, var(--ink) 16%, var(--bg));
   --tint: color-mix(in srgb, var(--ink) 7%, var(--bg));
   --accent-soft: color-mix(in srgb, var(--accent) 38%, var(--bg));
+  --on-accent: color-mix(in srgb, var(--ink) 55%, #000000); /* text on accent fills (buttons, stickers) */
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -73,6 +74,7 @@ html:not(.locked) .gate { display: none; }
 }
 :root[data-palette="b"] { --ink: #0E4A47; --bg: #F4F6F1; --accent: #FF7A59; }
 :root[data-palette="lava"] { --ink: #222020; --bg: #EDEAE4; --accent: #D2462A; }
+:root[data-palette="lava"]:not([data-theme="dark"]) { --on-accent: #ffffff; } /* dark text on this red is under 4.5:1 */
 :root[data-palette="storm"] { --ink: #0E1E4A; --bg: #F5F2EC; --accent: #F26A21; }
 :root[data-palette="kona"] { --ink: #3B2A20; --bg: #F6EFE6; --accent: #4F9D8B; }
 :root[data-palette="night"] { --ink: #0B1320; --bg: #E9EEF2; --accent: #3FD0C9; }
@@ -124,7 +126,7 @@ p { margin: 0; }
   border: 2px solid transparent; transition: transform .15s ease, background-color .2s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-accent { background: var(--accent); color: var(--deep); }
+.btn-accent { background: var(--accent); color: var(--on-accent); }
 .btn-ink { background: var(--ink); color: var(--bg); }
 .btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
 
@@ -285,7 +287,7 @@ p { margin: 0; }
 .addon { padding: 20px; border-radius: var(--radius); background: var(--tint); display: grid; gap: 8px; align-content: start; min-width: 0; }
 .addon b { font-family: var(--font-display); font-weight: 750; font-size: 17.5px; }
 .addon span { color: var(--muted); font-size: 15px; }
-.sticker { justify-self: start; margin-top: 6px; font-family: var(--font-display); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; background: var(--accent); color: var(--deep); border-radius: 8px; padding: 6px 10px; transform: rotate(-2deg); }
+.sticker { justify-self: start; margin-top: 6px; font-family: var(--font-display); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; background: var(--accent); color: var(--on-accent); border-radius: 8px; padding: 6px 10px; transform: rotate(-2deg); }
 @media (max-width: 900px) { .addons-row { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .addons-row { grid-template-columns: 1fr; } }
 
@@ -396,6 +398,7 @@ p { margin: 0; }
   --deep: color-mix(in srgb, var(--bg) 70%, #000000);
   --tint: color-mix(in srgb, var(--ink) 5%, var(--bg));
   --accent-soft: color-mix(in srgb, var(--accent) 34%, var(--bg));
+  --on-accent: var(--deep);
   --shadow: rgba(0, 0, 0, .6);
 }
 :root[data-theme="dark"][data-palette="b"] { --ink: #F4F6F1; --bg: #0A1F1E; --accent: #FF8A6C; --band: #0E4A47; --band-fg: #F4F6F1; }
@@ -513,8 +516,8 @@ p { margin: 0; }
         </div>
       </div>
       <div class="hero-collage">
-        <div class="photo collage-main"><img src="images/beach-chair.jpg" width="792" height="997" alt="Tan dog grinning on a blue beach chair on the sand"></div>
-        <div class="photo collage-side" style="--focus: 50% 35%"><img src="images/stroller.jpg" width="943" height="1400" alt="Smiling dog riding in a pet stroller in the sun"></div>
+        <div class="photo collage-main" style="--focus: 50% 40%"><img src="images/clover.jpg" width="1013" height="1400" alt="Kala in a harness and tie-dye bandana, smiling up from a patch of clover"></div>
+        <div class="photo collage-side" style="--focus: 50% 50%"><img src="images/beach-chair.jpg" width="792" height="997" alt="Kala grinning on a blue beach chair on the sand"></div>
         <span class="sticker collage-tag">Island Explorer</span>
       </div>
     </div>
@@ -554,7 +557,7 @@ p { margin: 0; }
           <div class="moment-body"><h3>Beach and trail</h3><p>First aid and gear for pets who get around.</p><span class="link-arrow">Shop adventure →</span></div>
         </a>
         <a class="moment" href="#shop">
-          <div class="photo" style="--focus: 50% 40%"><img src="images/car.jpg" width="1091" height="1400" loading="lazy" alt="Dog in a harness sitting on a covered car seat"></div>
+          <div class="photo" style="--focus: 50% 35%"><img src="images/stroller.jpg" width="943" height="1400" loading="lazy" alt="Kala riding in a shaded pet stroller"></div>
           <div class="moment-body"><h3>Travel and boarding</h3><p>Everything the sitter, kennel, or airline will ask for.</p><span class="link-arrow">Shop travel →</span></div>
         </a>
         <a class="moment" href="#shop">
