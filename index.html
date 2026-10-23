@@ -143,6 +143,15 @@ p { margin: 0; }
 .cart { min-height: 42px; padding: 0 16px; font-size: 15px; }
 .cart .count { font-family: var(--font-mono); font-weight: 500; }
 @media (max-width: 920px) { .nav { display: none; } }
+.menu-btn { width: 42px; min-height: 42px; padding: 0; }
+.menu-btn svg { width: 20px; height: 20px; }
+.menu-btn .close { display: none; }
+.menu-btn[aria-expanded="true"] .open { display: none; }
+.menu-btn[aria-expanded="true"] .close { display: block; }
+.menu { border-top: 1px solid var(--line); background: var(--bg); }
+.menu ul { list-style: none; margin-block: 0; padding-block: 8px 20px; display: grid; }
+.menu a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--font-display); font-weight: 750; font-size: 22px; }
+.menu a:hover { color: var(--accent); }
 
 /* Hero */
 .hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 96px); }
@@ -472,8 +481,22 @@ p { margin: 0; }
     </nav>
     <div class="header-actions">
       <a class="btn btn-line cart" href="#shop">Cart <span class="count">0</span></a>
+      <button class="btn btn-line menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+        <svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </div>
+  <nav class="menu" id="site-menu" aria-label="Menu" hidden>
+    <ul class="wrap">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#prepare">Prepare</a></li>
+      <li><a href="#about">Our story</a></li>
+      <li><a href="#wholesale">Find us</a></li>
+      <li><a href="#wholesale">Wholesale</a></li>
+      <li><a href="#top">Contact and FAQ</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main id="top">
@@ -655,7 +678,7 @@ p { margin: 0; }
         <h3>At clinics, stores, and events</h3>
         <p>Come say hi, meet the team, and see the products in person.</p>
         <ul class="events">
-          <li><time>Nov 2026</time><span>Partner vet clinics on Oahu · list coming soon</span></li>
+          <li><time>Upcoming</time><span>List coming soon</span></li>
           <li><time>Upcoming</time><span>Pet expos, farmers markets, and adoption events</span></li>
         </ul>
         <a class="btn btn-line" href="#wholesale">See all locations</a>
@@ -728,6 +751,17 @@ p { margin: 0; }
   }
   setTheme(root.getAttribute('data-theme') === 'dark');
   mode.addEventListener('click', function () { setTheme(root.getAttribute('data-theme') !== 'dark'); });
+
+  var menuBtn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('site-menu');
+  function setMenu(open) {
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  }
+  menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !e.target.closest('.site-header')) setMenu(false); });
 
   var form = document.getElementById('signup-form');
   var msg = document.getElementById('signup-msg');
