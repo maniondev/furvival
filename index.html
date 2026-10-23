@@ -325,6 +325,9 @@ p { margin: 0; }
 .menu .switcher .versions a[aria-current="page"] { background: var(--ink); color: var(--bg); }
 .menu .switcher .swatches i { width: 18px; height: 18px; border-color: var(--bg); }
 .menu .switcher .mode { color: var(--ink); }
+
+/* Anchor links stop below the sticky header instead of under it */
+[id] { scroll-margin-top: calc(65px + env(safe-area-inset-top, 0px)); }
 </style>
 </head>
 <body>
