@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="locked" data-palette="lava">
+<html lang="en" class="locked" data-palette="lava" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,9 +8,9 @@
 <script>
 (function () {
   var r = document.documentElement, p, t;
-  try { p = localStorage.getItem('furvival-palette-v2'); t = localStorage.getItem('furvival-theme'); } catch (e) {}
+  try { p = localStorage.getItem('furvival-palette-v2'); t = localStorage.getItem('furvival-theme-v2'); } catch (e) {}
   if (p === 'a') r.removeAttribute('data-palette'); else if (p) r.setAttribute('data-palette', p);
-  if (t === 'dark') r.setAttribute('data-theme', 'dark');
+  if (t === 'light') r.removeAttribute('data-theme'); // dark unless the visitor chose light
 })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -331,6 +331,7 @@ p { margin: 0; }
 @media (max-width: 400px) { .site-header .wordmark { font-size: 21px; } .site-header .mark { width: 33px; height: 33px; } }
 .cart { white-space: nowrap; }
 @media (max-width: 400px) { .header-row { gap: 12px; } .header-actions { gap: 4px; } }
+.more-guides { margin-top: 24px; }
 </style>
 </head>
 <body>
@@ -479,6 +480,7 @@ p { margin: 0; }
           <li><a href="#guides"><h3>Flying inter-island with a pet</h3><span class="go">Read</span></a></li>
           <li><a href="#guides"><h3>Pet first aid basics</h3><span class="go">Read</span></a></li>
         </ul>
+        <a class="btn btn-quiet more-guides" href="#guides">More guides and articles</a>
       </div>
       <div class="signup" id="signup">
         <h2>Get the prep checklist</h2>
@@ -536,13 +538,13 @@ p { margin: 0; }
   buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.pal); }); });
 
   var mode = document.getElementById('mode');
-  function setTheme(dark) {
+  function setTheme(dark, save) {
     if (dark) root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
     mode.setAttribute('aria-pressed', String(dark));
-    try { localStorage.setItem('furvival-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    if (save) { try { localStorage.setItem('furvival-theme-v2', dark ? 'dark' : 'light'); } catch (e) {} }
   }
-  setTheme(root.getAttribute('data-theme') === 'dark');
-  mode.addEventListener('click', function () { setTheme(root.getAttribute('data-theme') !== 'dark'); });
+  setTheme(root.getAttribute('data-theme') === 'dark', false);
+  mode.addEventListener('click', function () { setTheme(root.getAttribute('data-theme') !== 'dark', true); });
 
   var menuBtn = document.querySelector('.menu-btn');
   var menu = document.getElementById('site-menu');
