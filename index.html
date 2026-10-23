@@ -190,6 +190,25 @@ p { margin: 0; }
   .hero-sub { font-size: 17px; }
 }
 
+/* Hero, whole-photo variant: the square photo is never cropped.
+   Desktop: photo fills the right side at full height, headline on a dark panel that fades into it.
+   Phone: photo on top, copy below it. */
+.hero { --hero-bg: #1c1b1a; background: var(--hero-bg); }
+.hero::after { display: none; }
+.hero-photo { left: auto; right: 0; width: auto; height: 100%; aspect-ratio: 1 / 1; }
+.hero-photo img { object-fit: contain; object-position: 50% 50%; }
+.hero-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to right, var(--hero-bg) 0%, rgba(28,27,26,.75) 14%, rgba(28,27,26,0) 42%),
+              linear-gradient(to top, rgba(28,27,26,.35) 0%, rgba(28,27,26,0) 30%); }
+.hero-inner { align-self: center; }
+@media (max-width: 760px) {
+  .hero { display: block; min-height: 0; }
+  .hero-photo { position: relative; width: 100%; height: auto; }
+  .hero-photo img { object-position: 50% 50%; }
+  .hero-photo::after { background: linear-gradient(to top, var(--hero-bg) 0%, rgba(28,27,26,0) 28%); }
+  .hero-inner { padding-block: 4px 40px; margin-top: -8px; }
+}
+
 /* Featured product */
 .feature { padding-block: clamp(48px, 7vw, 88px); }
 .feature-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
@@ -358,7 +377,7 @@ p { margin: 0; }
 <main id="top">
   <section class="hero">
     <figure class="hero-photo">
-      <img src="images/clover.jpg" width="1013" height="1400" alt="Kala in a harness and tie-dye bandana, smiling up from a patch of clover">
+      <img src="images/pool.jpg" width="1206" height="1201" alt="John laughing on a pool float with Kala">
     </figure>
     <div class="wrap hero-inner">
       <div class="hero-copy">
