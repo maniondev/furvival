@@ -256,8 +256,8 @@ p { margin: 0; }
 /* Guides + sign-up */
 .learn { padding-block: clamp(56px, 8vw, 104px); background: var(--tint); }
 .learn-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-.guides { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1.5px solid var(--ink); }
-.guides a { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding-block: 20px; border-bottom: 1px solid var(--line); text-decoration: none; }
+.guides { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1.5px solid var(--ink); display: grid; grid-auto-rows: 1fr; } /* every row as tall as the tallest */
+.guides a { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding-block: 20px; border-bottom: 1px solid var(--line); text-decoration: none; height: 100%; align-items: center; }
 .guides h3 { font-size: 21px; font-weight: 750; letter-spacing: -0.015em; line-height: 1.2; }
 .guides p { grid-column: 1; color: var(--muted); font-size: 15.5px; }
 .guides .go { grid-column: 2; align-self: center; font-weight: 600; font-size: 15px; }
@@ -412,7 +412,7 @@ p { margin: 0; }
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <h1>From beach days to big storms</h1>
-        <p class="hero-sub">First aid kits, go-bags, and pet records for dogs and cats. Made in Hawaii with veterinary professionals.</p>
+        <p class="hero-sub">First aid kits, go-bags, and pet records for dogs and cats. Made in Hawaiʻi with veterinary professionals.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#ready-kit">Shop the Ready Kit</a>
           <a class="text-link" href="#shop">See all products</a>
@@ -463,7 +463,7 @@ p { margin: 0; }
         <h2>Hi, we're John and Ani.</h2>
         <div class="letter">
           <p>Furvival started with a question during hurricane season: if we had to leave in ten minutes, would Kala be ready? She wasn't, and neither were we.</p>
-          <p>Ani works in veterinary medicine, so we build each product around what veterinary professionals actually ask for when something goes wrong. Everything is designed here on Oahu.</p>
+          <p>Ani works in veterinary medicine, so we build each product around what veterinary professionals actually ask for when something goes wrong. Everything is designed here on Oʻahu.</p>
         </div>
         <p class="sign">John and Ani<small>Founders, with Kala</small></p>
       </div>
@@ -475,7 +475,7 @@ p { margin: 0; }
       <div>
         <h2>Free guides</h2>
         <ul class="guides">
-          <li><a href="#guides"><h3>Hurricane season checklist for pets</h3><span class="go">Read</span></a></li>
+          <li><a href="#guides"><h3>Hurricane season checklist</h3><span class="go">Read</span></a></li>
           <li><a href="#guides"><h3>Flying inter-island with a pet</h3><span class="go">Read</span></a></li>
           <li><a href="#guides"><h3>Pet first aid basics</h3><span class="go">Read</span></a></li>
         </ul>
@@ -515,7 +515,7 @@ p { margin: 0; }
       <div><h4>Learn</h4><ul><li><a href="#guides">Guides</a></li><li><a href="#story">Our story</a></li><li><a href="#guides">Find us at events</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="#top">Contact</a></li><li><a href="#top">FAQ</a></li><li><a href="#trade">Wholesale</a></li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Furvival · Honolulu, Hawaii</span><span>Furvival products do not replace care from your veterinarian.</span></div>
+    <div class="legal"><span>© 2026 Furvival · Honolulu, Hawaiʻi</span><span>Furvival products do not replace care from your veterinarian.</span></div>
   </div>
 </footer>
 
