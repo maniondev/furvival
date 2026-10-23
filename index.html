@@ -135,7 +135,10 @@ p { margin: 0; }
 .nav a { text-decoration: none; padding-block: 6px; border-bottom: 1.5px solid transparent; }
 .nav a:hover { border-bottom-color: currentColor; }
 .header-actions { display: flex; gap: 8px; align-items: center; }
-.cart { font-size: 15px; font-weight: 600; text-decoration: none; padding: 10px 4px; }
+.cart { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; color: var(--ink); }
+.cart svg { width: 24px; height: 24px; }
+/* Count badge: only rendered when the bag has items */
+.cart-count { position: absolute; top: 3px; right: 0; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 700 11px/18px var(--font-body); text-align: center; }
 .menu-btn { display: none; width: 44px; height: 44px; border-radius: var(--r-ctl); border: 0; background: transparent; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
 .menu-btn { position: relative; }
 .menu-btn svg { position: absolute; top: 11px; left: 11px; width: 22px; height: 22px; transition: opacity .2s ease, transform .3s ease; }
@@ -329,7 +332,6 @@ p { margin: 0; }
 /* Anchor links stop below the sticky header instead of under it */
 [id] { scroll-margin-top: calc(65px + env(safe-area-inset-top, 0px)); }
 @media (max-width: 400px) { .site-header .wordmark { font-size: 21px; } .site-header .mark { width: 33px; height: 33px; } }
-.cart { white-space: nowrap; }
 @media (max-width: 400px) { .header-row { gap: 12px; } .header-actions { gap: 4px; } }
 .more-guides { margin-top: 24px; }
 </style>
@@ -373,7 +375,7 @@ p { margin: 0; }
       <a href="#trade">Wholesale</a>
     </nav>
     <div class="header-actions">
-      <a class="cart" href="#shop">Cart (0)</a>
+      <a class="cart" href="#shop" aria-label="Cart, 0 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
         <svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
