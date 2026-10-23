@@ -372,9 +372,9 @@ p { margin: 0; }
 .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .item { display: grid; gap: 6px; text-decoration: none; min-width: 0; align-content: start; }
 .item .photo { aspect-ratio: 1; margin-bottom: 8px; background-color: var(--surface); }
-.item .photo.icon { background: var(--surface); }
+.item .photo.icon { background: var(--accent); border-color: transparent; }
 .item .photo.icon::after {
-  content: ""; position: absolute; inset: 14%; background: var(--ink);
+  content: ""; position: absolute; inset: 14%; background: var(--on-accent); /* light lines where they reach 3:1 on the accent, dark elsewhere */
   -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
 }
 .item b { font-family: var(--font-display); font-weight: 750; font-size: 18px; }
