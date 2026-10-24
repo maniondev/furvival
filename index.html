@@ -192,19 +192,21 @@ p { margin: 0; }
 /* Hero, whole-photo variant: the square photo is never cropped.
    Desktop: photo fills the right side at full height, headline on a dark panel that fades into it.
    Phone: photo on top, copy below it. */
-.hero { --hero-bg: #1c1b1a; background: var(--hero-bg); }
+/* Hero panel follows the palette: its dark ink in light mode, a lifted page background in dark mode */
+.hero { --hero-bg: var(--ink); background: var(--hero-bg); }
+:root[data-theme="dark"] .hero { --hero-bg: color-mix(in srgb, var(--bg) 96%, #ffffff); }
 .hero::after { display: none; }
 .hero-photo { left: auto; right: 0; width: auto; height: 100%; aspect-ratio: 1 / 1; }
 .hero-photo img { object-fit: contain; object-position: 50% 50%; }
 .hero-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(to right, var(--hero-bg) 0%, rgba(28,27,26,.75) 14%, rgba(28,27,26,0) 42%),
-              linear-gradient(to top, rgba(28,27,26,.35) 0%, rgba(28,27,26,0) 30%); }
+  background: linear-gradient(to right, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 75%, transparent) 14%, color-mix(in srgb, var(--hero-bg) 0%, transparent) 42%),
+              linear-gradient(to top, color-mix(in srgb, var(--hero-bg) 35%, transparent) 0%, color-mix(in srgb, var(--hero-bg) 0%, transparent) 30%); }
 .hero-inner { align-self: center; }
 @media (max-width: 760px) {
   .hero { display: block; min-height: 0; }
   .hero-photo { position: relative; width: 100%; height: auto; aspect-ratio: 9 / 7; } /* trims the top of the photo (hedge and fence) */
   .hero-photo img { object-fit: cover; object-position: 50% 100%; }
-  .hero-photo::after { background: linear-gradient(to top, var(--hero-bg) 0%, rgba(28,27,26,0) 28%); }
+  .hero-photo::after { background: linear-gradient(to top, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 0%, transparent) 28%); }
   .hero-inner { padding-block: 4px 40px; margin-top: -8px; }
 }
 
