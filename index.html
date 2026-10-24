@@ -337,6 +337,8 @@ p { margin: 0; }
 .more-guides { margin-top: 24px; }
 .hero h1 .keep { white-space: nowrap; } /* lines break as "Big storms / to beach days" */
 @media (min-width: 1200px) { .hero-copy { max-width: 760px; } }
+/* Sections focused after an in-page link jump: no outline box around the whole section */
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible { outline: none; }
 </style>
 </head>
 <body>

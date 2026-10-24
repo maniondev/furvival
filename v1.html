@@ -491,6 +491,8 @@ p { margin: 0; }
 
 /* Anchor links stop below the sticky header instead of under it */
 [id] { scroll-margin-top: calc(69px + env(safe-area-inset-top, 0px)); }
+/* Sections focused after an in-page link jump: no outline box around the whole section */
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible { outline: none; }
 </style>
 </head>
 <body>
